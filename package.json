@@ -1,0 +1,34 @@
+{
+	"name" : "thriftbooks-api",
+	"version" : "0.0.1",
+	"author" : "Ethan Willis <ewillis1@memphis.edu>",
+	"description" : "A simple wrapper around http requests for thriftbooks.com to browse offerings, place orders, and manage account information",
+	"contributors" : [
+		{
+			"name" : "Ethan Willis",
+			"email" : "ewillis1@memphis.edu"
+		}
+	],
+	"license" : "MPL-2.0",
+	"homepage" : "https://github.com/sn3twork/thriftbooksapi",
+	"bugs" : {
+		"url" : "https://github.com/sn3twork/thriftbooksapi/issues",
+		"email" : "ewillis1@memphis.edu"
+	},
+	"main" : "./thriftbooksapi.js",
+	"keywords" : [
+		"thriftbooks",
+		"thriftbooks.com",
+		"api",
+		"thrift books"
+	],
+	"repository" : {
+		"type" : "git",
+		"url" : "https://github.com/sn3twork/thriftbooksapi.git"
+	},
+	"dependencies" : {
+		"node-request" : "git://github.com/mikeal/request.git#6a4fd9ad6f"
+	}
+}
+
+
