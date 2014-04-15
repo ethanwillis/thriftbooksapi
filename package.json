@@ -1,6 +1,6 @@
 {
 	"name" : "thriftbooks-api",
-	"version" : "0.0.2",
+	"version" : "0.0.3",
 	"author" : "Ethan Willis <ewillis1@memphis.edu>",
 	"description" : "A simple wrapper around http requests for thriftbooks.com to browse offerings, place orders, and manage account information",
 	"contributors" : [

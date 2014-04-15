@@ -11,7 +11,7 @@ var requestChain = new Array();
 thriftbooksObject.setAccount( "user@example.com", "password" );
 	
 // Create corresponding function and request chains. 
-functionChain.push(thriftbooksObject.accountInfo);
 requestChain.push(thriftbooksObject.accountInfoRequest);
+functionChain.push(thriftbooksObject.accountInfo);
 	
 thriftbooksObject.runChains(functionChain, requestChain);
