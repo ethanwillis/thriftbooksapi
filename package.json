@@ -27,7 +27,8 @@
 		"url" : "https://github.com/sn3twork/thriftbooksapi.git"
 	},
 	"dependencies" : {
-		"node-request" : "git://github.com/mikeal/request.git#6a4fd9ad6f"
+		"node-request" : "2.34.0",
+		"htmlparser2" : "3.7.1"
 	}
 }
 

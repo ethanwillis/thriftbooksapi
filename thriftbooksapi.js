@@ -170,7 +170,14 @@ function ThriftbooksAPI() {
 			'ctl00$hdnLibraryID' : ''
 		}
 	}
+	
+	this.outputDir = 'results';
 };
+
+ThriftbooksAPI.prototype.setOutputDir = function(directory) {
+	this.outputDir = directory;
+	// todo add code to create directory based on existence
+}
 
 /**
  * Sets the username and password used.
@@ -207,6 +214,7 @@ ThriftbooksAPI.prototype.setNewAddress = function( firstName, lastName, address,
 	return this.addAddressRequest;
 }
 
+
 /**
  * Fetches the account info for this account and writes it to disk.
  * @param {object} cookieJar - a cookie jar that is passed through the callback chain to maintain the program's session.
@@ -219,6 +227,7 @@ ThriftbooksAPI.prototype.accountInfo = function(cookieJar, requestData, callback
 	requestData.jar = cookieJar;
 	console.log("Loading account info...");
 	request.get(requestData, function(error, response, body) {
+		convert2JSON('accountInfo', body);
 		fs.writeFileSync('results/accountInfo.html', body);
 		console.log('load account info response...' + response.statusCode);
 		if( !(callbackFuncs[0] === undefined && callbackRequests[0] === undefined) ) {
@@ -253,7 +262,7 @@ ThriftbooksAPI.prototype.addAddress = function(cookieJar, requestData, callbackF
 
 /**
  */
-ThriftbooksAPI.prototype.searchByISBN = function(cookieJar, requestData, callbackFUncs, callbackRequests) {
+ThriftbooksAPI.prototype.searchByISBN = function(cookieJar, requestData, callbackFuncs, callbackRequests) {
 	var self = this;
 	requestData.jar = cookieJar;
 	console.log('Searching for item...');
@@ -277,9 +286,9 @@ ThriftbooksAPI.prototype.searchByISBN = function(cookieJar, requestData, callbac
 ThriftbooksAPI.prototype.login = function(requestData, callbackFuncs, callbackRequests) {
 	var self = this;
 	requestData.jar = request.jar();
-	request.post(requestData, function(error, response, body) {
 	console.log('Logging into website...');
-		fs.writeFileSync('results/login.html', body);
+	request.post(requestData, function(error, response, body) {
+		//fs.writeFileSync('results/login.html', body);
 		console.log('login response... ' + response.statusCode);
 		if( !(callbackFuncs[0] === undefined && callbackRequests[0] === undefined) ) {
 			var remainingFuncs = callbackFuncs.length - 1;
